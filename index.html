@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реєстрація</title>
+  
+  <link id="cf-lander-font-families" rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:regular,bold,900|Pacifico:regular,bold,400|Open+Sans:regular,bold,500,700,400|Poppins:regular,bold,900">
+  
+  <style>
+    :root {
+      --color-primary: rgb(20, 138, 255);
+      --color-dark: rgb(7, 31, 47);
+      --color-light: rgb(253, 253, 253);
+      --color-gray: rgb(77, 86, 99);
+      
+      /* Фірмовий темно-синій градієнт прямо з вашого оригінального index.html */
+      --bg-gradient: linear-gradient(135deg, rgb(7, 31, 47) 0%, rgb(15, 50, 75) 50%, rgb(25, 75, 110) 100%);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Open Sans", sans-serif;
+      
+      /* Пріоритет на картинку з папки images. Якщо картинки немає — увімкнеться оригінальний синій градієнт */
+      background-image: url('images/background.png'), var(--bg-gradient);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      background-size: cover;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Напівпрозорий темний шар для кращого контрасту текстових полів на синьому фоні */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(7, 31, 47, 0.4);
+      z-index: 1;
+    }
+
+    .registration-container {
+      background: rgba(255, 255, 255, 0.96); /* Чиста біла плашка з легким глянцевим ефектом */
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 450px;
+      box-sizing: border-box;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(8px);
+    }
+
+    .logo-headline {
+      font-family: "Pacifico", handwriting, sans-serif;
+      color: rgb(141, 178, 63); /* Оригінальний зелений колір логотипу */
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 900;
+      color: var(--color-dark);
+      margin-top: 0;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.02rem;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--color-gray);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      background-color: #ffffff;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(20, 138, 255, 0.15);
+    }
+
+    .btn-register {
+      width: 100%;
+      padding: 16px;
+      background-color: var(--color-primary); /* Оригінальний синій колір кнопки */
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s, transform 0.1s;
+    }
+
+    .btn-register:hover {
+      background-color: rgb(15, 115, 220);
+    }
+
+    .btn-register:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="registration-container">
+    <div class="logo-headline">You-registration</div>
+    <h2>Створити акаунт</h2>
+    
+    <form id="registrationForm">
+      <div class="form-group">
+        <label for="username">Ім'я користувача</label>
+        <input type="text" id="username" class="form-control" placeholder="Введіть ваше ім'я" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Електронна пошта</label>
+        <input type="email" id="email" class="form-control" placeholder="example@domain.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" id="password" class="form-control" placeholder="Мінімум 6 символів" required>
+      </div>
+
+      <button type="submit" class="btn-register">Зареєструватися</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Адреса для перенаправлення (замініть на свою за потреби)
+      const targetAddress = 'https://diakonarmy.github.io/Ilya3-thanks/';
+      window.location.href = targetAddress;
+    });
+  </script>
+
+</body>
+</html>
